@@ -1,0 +1,30 @@
+## N É PAR
+
+    Q1 = N/4 + 1/2
+    Q2 = (n/2) + ((n/2)+1) / 2 (MEDIANA)
+    Q3 = 3N/4 + 1/2
+
+## N É ÍMPAR
+
+    Q1 = (N+1) / 4
+    Q2 = (N+1)/2 (MEDIANA)
+    Q3 = 3*(N+1) / 4
+
+
+
+
+
+numpy = np
+statistics = sta
+-- funcoes:
+MEDIA
+X = LISTA.mean()
+
+MEDIANA
+X = np.median(LISTA)
+
+MODA
+x = sta.multimode(LISTA)
+
+QUARTIL
+x = np.percentile(LISTA, pct%)
