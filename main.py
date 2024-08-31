@@ -1,51 +1,55 @@
 # imports
-import numpy as np
-import statistics as sta
-import banco
-import medidas1 as m1
-
-def linha():
-    print("=-=-=-=-=-=-=-=-=-=-=-=")
-
+import funcoes as fn
 
 # busca no banco
-syncAtual = banco.sync1 ## 22 dados
-asyncAtual = banco.asyncr1 ## 14 dados
+syncAtual = fn.buscaBanco(1)
+asyncAtual = fn.buscaBanco(2)
 
-# maximo e minimo
-maxS = max(syncAtual)
-minS = min(syncAtual)
+# operacoes
+# fn.media(syncAtual)
+# fn.media(asyncAtual)
 
-# amplitude
-ampS = syncAtual.ptp()
-ampA = asyncAtual.ptp()
+# fn.linha()
 
-# amplitude interquartil
-iqrS = m1.sq3 - m1.sq1
-iqrA = m1.aq3 - m1.aq1
+# fn.mediana(syncAtual)
+# fn.mediana(asyncAtual)
 
-# variancia
-varS = syncAtual.var(ddof=1)
-varA = asyncAtual.var(ddof=1)
+# fn.linha()
 
-# desvio padrao
-sS = syncAtual.std(ddof=1)
-sA = asyncAtual.std(ddof=1)
+# fn.moda(syncAtual)
+# fn.moda(asyncAtual)
 
-# saídas
-print("Iniciando...")
-linha()
-print("maxS", maxS)
-print("minS", minS)
-linha()
-print("amplit sync", ampS)
-print("amplit async", ampA)
-linha()
-print("amplit sync interquartil", iqrS)
-print("amplit async interquartil", iqrA)
-linha()
-print("variancia sync", varS)
-print("variancia async", varA)
-linha()
-print("desvio p sync", sS)
-print("desvio p async", sA)
+# fn.linha()
+
+# fn.percentil(syncAtual, 25)
+# fn.percentil(asyncAtual, 25)
+
+# fn.linha()
+
+# fn.percentil(syncAtual, 75)
+# fn.percentil(asyncAtual, 75)
+
+# fn.linha()
+
+# fn.amplitude(syncAtual)
+# fn.amplitude(asyncAtual)
+
+# fn.linha()
+
+# fn.variancia(syncAtual, 0) # populacao
+# fn.variancia(asyncAtual, 0)
+
+# fn.linha()
+
+# fn.variancia(syncAtual, 1) # amostra
+# fn.variancia(asyncAtual, 1)
+
+# fn.linha()
+
+# fn.desvioPadrao(syncAtual, 0) # populacao
+# fn.desvioPadrao(asyncAtual, 0)
+
+# fn.linha()
+
+# fn.desvioPadrao(syncAtual, 1) # amostra
+# fn.desvioPadrao(asyncAtual, 1)
