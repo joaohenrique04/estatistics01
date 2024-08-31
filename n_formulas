@@ -28,3 +28,21 @@ x = sta.multimode(LISTA)
 
 QUARTIL
 x = np.percentile(LISTA, pct%)
+
+
+-- DISPERSAO
+
+AMPLITUDE
+x = LISTA.ptp()
+
+AMPLITUDE INTERQUARTIL
+
+iqr = q3 - q1
+
+VARIANCIA
+x = LISTA.var(ddof=0) populacao
+x = LISTA.var(ddof=1) amostra
+
+DESVIO PADRAO
+x = LISTA.std(ddof=0) populacao
+x = LISTA.std(ddof=1) amostra
