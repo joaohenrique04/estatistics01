@@ -76,3 +76,8 @@ def desvioPadrao(banco, tipo):
 
     return var
 
+def compara_h0(x):
+    if x < 0.05:
+        print("H0 rejeitada!")
+    else:
+        print("H0 não foi rejeitada")
