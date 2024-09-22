@@ -14,5 +14,5 @@ R2:
 
 
 R3:
-
+Graficos e informações no docs.
 + Fazer o teste de Hipótese de todas as colunas de todas as espécies
