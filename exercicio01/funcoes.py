@@ -1,9 +1,12 @@
 import scipy
 import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
 import math
 
 
 def calcula_assimetria(dados, var):
+    # retorna informacao de assimetria
     ass = scipy.stats.skew(dados)
 
     print("Para", var, "a assimetria retornou:", end=" ")
@@ -17,6 +20,7 @@ def calcula_assimetria(dados, var):
     print(round(ass, 2))
 
 def calcula_curtose(dados, var):
+    # retorna informacao de curtose
     curt = scipy.stats.kurtosis(dados)
 
     print("Para", var, "a curtose retornou:", end=" ")
@@ -30,7 +34,7 @@ def calcula_curtose(dados, var):
     print(round(curt,2))
 
 def ret_p_value(dados, var):
-    
+    # retorna o p_value e ja retorna informaoes de assimetria e curtose
     p_v = scipy.stats.shapiro(dados).pvalue
     
     calcula_assimetria(dados, var)
@@ -41,7 +45,23 @@ def ret_p_value(dados, var):
     
     return p_v
 
+def disp(label1, dados1, label2, dados2, title, data):
+    # grafico de dispersao
+    # Cria um DataFrame com os dados a serem plotados
+    dados = pd.DataFrame({label1: dados1, label2: dados2})
+
+    # Cria o gráfico de dispersão
+    sns.scatterplot(data=dados, x=label1, y=label2, color='blue', label=data)
+
+    # Configurações do gráfico
+    plt.title(title)
+    plt.xlabel(label1)
+    plt.ylabel(label2)
+    plt.legend()
+    plt.show()
+
 def hist(dados, title):
+    # histograma
     v_min = min(dados)
     v_max = max(dados)
     num_dados = len(dados)
@@ -55,6 +75,7 @@ def hist(dados, title):
     plt.show()
 
 def hist_bins(dados, title, p_bins):
+    # histograma com bins variavel
     v_min = min(dados)
     v_max = max(dados)
     num_dados = len(dados)
@@ -69,4 +90,5 @@ def hist_bins(dados, title, p_bins):
     plt.show()
 
 def linha():
+    # imprime linha
     print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
