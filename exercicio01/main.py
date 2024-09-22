@@ -84,3 +84,33 @@ disp('Sepal_Length_Cm', bd_versicolor['PetalLengthCm'], 'Petal_Length_Cm', bd_ve
 ## VIRGINICA
 disp('Sepal_Length_Cm', bd_virginica['PetalLengthCm'], 'Petal_Length_Cm', bd_virginica['SepalLengthCm'], "Comprimento de Sépala x Pétala", "Iris-virginica")
 """""
+
+# DESVIO PADRAO DOS DADOS (Q4)
+## (1) SEPAL LENGTH (2) SEPAL WIDTH (3) PETAL LENGTH (4) SEPAL WIDTH
+### SETOSA
+"""
+dp_setosa_sl = desviopadrao(bd_setosa['SepalLengthCm'], 1) # 0.35
+dp_setosa_sw = desviopadrao(bd_setosa['SepalWidthCm'], 1) # 0.38
+dp_setosa_pl = desviopadrao(bd_setosa['PetalLengthCm'], 1) # 0.17
+dp_setosa_pw = desviopadrao(bd_setosa['PetalWidthCm'], 1) # 0.11
+
+print(dp_setosa_sl, dp_setosa_sw, dp_setosa_pl, dp_setosa_pw)
+"""
+### VERSICOLOR
+"""
+dp_versicolor_sl = desviopadrao(bd_versicolor['SepalLengthCm'], 1) # 0.52
+dp_versicolor_sw = desviopadrao(bd_versicolor['SepalWidthCm'], 1) # 0.31
+dp_versicolor_pl = desviopadrao(bd_versicolor['PetalLengthCm'], 1) # 0.47
+dp_versicolor_pw = desviopadrao(bd_versicolor['PetalWidthCm'], 1) # 0.2
+
+print(dp_versicolor_sl, dp_versicolor_sw, dp_versicolor_pl, dp_versicolor_pw)
+"""
+### VIRGINICA
+"""
+dp_virginica_sl = desviopadrao(bd_virginica['SepalLengthCm'], 1) # 0.64
+dp_virginica_sw = desviopadrao(bd_virginica['SepalWidthCm'], 1) # 0.32
+dp_virginica_pl = desviopadrao(bd_virginica['PetalLengthCm'], 1) # 0.55
+dp_virginica_pw = desviopadrao(bd_virginica['PetalWidthCm'], 1) # 0.27
+
+print(dp_virginica_sl, dp_virginica_sw, dp_virginica_pl, dp_virginica_pw)
+"""

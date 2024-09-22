@@ -2,6 +2,7 @@ import scipy
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
+import numpy as np
 import math
 
 
@@ -88,6 +89,14 @@ def hist_bins(dados, title, p_bins):
     plt.xlabel("Valor")
     plt.ylabel("Frequência")
     plt.show()
+
+def desviopadrao(dados, ddof):
+    # calcula desvio padrao
+    # 0 populacional / 1 amostra
+
+    data = np.std(dados, ddof=ddof)
+    data = round(data, 2) ## arredondar
+    return (data)
 
 def linha():
     # imprime linha
