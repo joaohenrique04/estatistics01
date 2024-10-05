@@ -33,8 +33,8 @@ print(async_kurt)
 AULA ANTERIOR ABAIXO
 """""
 # operacoes
-# fn.media(syncAtual)
-# fn.media(asyncAtual)
+fn.media(syncAtual)
+fn.media(asyncAtual)
 
 # fn.linha()
 
