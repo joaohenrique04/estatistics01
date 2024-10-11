@@ -35,6 +35,20 @@ def buscaBanco(id):
             return banco.before_diet
         case 12:
             return banco.after_diet
+        case 13:
+            return banco.grupo_a
+        case 14:
+            return banco.grupo_b
+        case 15:
+            return banco.especie_x
+        case 16:
+            return banco.especie_y
+        case 17:
+            return banco.dieta_a
+        case 18:
+            return banco.dieta_b
+        case 19:
+            return banco.dieta_c
 
 def media(banco):
     var = banco.mean()
@@ -172,6 +186,21 @@ def hipotese1(banco1, banco2):
 
     #H0 = MEDIAS IGUAIS
     #H1 = MEDIAS DIFERENTES
+
+def var_dif(banco1, banco2):
+    # HIPOTESES NORMAIS
+    # MESMA VARIANCIA
+    ttest, p_value = scipy.stats.ttest_ind(banco1, banco2, equal_var=False)
+    print("p_value ttest", p_value)
+
+    # divide o p valor por 2 pois é um teste de somente um lado
+    if p_value/2 < 0.05:
+        print("hipotese nula rejeitada")
+    else:
+        print("hipotese nula aceita")
+
+    #H0 = MEDIAS IGUAIS
+    #H1 = MEDIAS DIFERENTES
     
 def hipotese2(banco1, banco2, banco3):
     # TESTE DE ANOVA
@@ -191,7 +220,7 @@ def hipotese2(banco1, banco2, banco3):
     #H1 = PELO MENOS UMA DIFERENTE
 
 def posthoc(banco1, banco2, banco3):
-    group_names = ['materno', 'formula', 'ambos']
+    group_names = ['dieta a', 'dieta b', 'dieta c']
     posthoc_df = sp.posthoc_ttest([banco1, banco2, banco3], equal_var = True, p_adjust="bonferroni")
 
     posthoc_df.columns = group_names
