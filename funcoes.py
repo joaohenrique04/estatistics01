@@ -49,6 +49,10 @@ def buscaBanco(id):
             return banco.dieta_b
         case 19:
             return banco.dieta_c
+        case 20:
+            return banco.reg
+        case 21:
+            return banco.reg2
 
 def media(banco):
     var = banco.mean()
