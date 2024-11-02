@@ -4,6 +4,7 @@ import seaborn as sns
 import pandas as pd
 import numpy as np
 import math
+from sklearn.linear_model import LinearRegression
 
 
 def calcula_assimetria(dados, var):
@@ -38,9 +39,10 @@ def ret_p_value(dados, var):
     # retorna o p_value e ja retorna informaoes de assimetria e curtose
     p_v = scipy.stats.shapiro(dados).pvalue
     
-    calcula_assimetria(dados, var)
+    #calcula_assimetria(dados, var)
     if p_v > 0.05:
-        calcula_curtose(dados, var)
+        #calcula_curtose(dados, var)
+        print("Hipótese nula nao é desconsiderada.")
     else:
         print("Hipótese nula desconsiderada.")
     
@@ -97,6 +99,37 @@ def desviopadrao(dados, ddof):
     data = np.std(dados, ddof=ddof)
     data = round(data, 2) ## arredondar
     return (data)
+
+def correlacao(col1, col2):
+    # usado quando é normal
+    cor = np.corrcoef(col1, col2)[0, 1]
+    print(f'Coeficiente de correlação: {cor}')
+
+
+def regressao(col1, col2):
+    model = LinearRegression()
+    model.fit(col1, col2)
+    print('Coeficiente (A):', model.coef_)
+    print('Intercept (B):', model.intercept_)
+
+def calcular_ssr(y_true, y_pred):
+    """
+    Calcula a Soma dos Quadrados da Regressão (SSR).
+
+    Parâmetros:
+    y_true -- array com os valores verdadeiros (observados)
+    y_pred -- array com as previsões do modelo
+
+    Retorna:
+    SSR -- a Soma dos Quadrados da Regressão
+    """
+    # Calcular a média dos valores verdadeiros
+    media_y = np.mean(y_true)
+
+    # Calcular o SSR
+    ssr = np.sum((y_pred - media_y) ** 2)
+
+    return ssr
 
 def linha():
     # imprime linha
