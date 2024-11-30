@@ -21,3 +21,6 @@ array_petal_width = bd_virginica['PetalWidthCm'].to_numpy()
 
 array_sepal_length = bd_virginica['SepalLengthCm'].to_numpy()
 array_sepal_width = bd_virginica['SepalWidthCm'].to_numpy()
+
+bd_cars = pd.read_csv('mtcars.csv')
+bd_cerveja = pd.read_csv('consumo_cerveja.csv')

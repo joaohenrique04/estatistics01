@@ -4,6 +4,7 @@ import seaborn as sns
 import pandas as pd
 import numpy as np
 import math
+from scipy.stats import spearmanr, pearsonr
 from sklearn.linear_model import LinearRegression
 
 
@@ -42,9 +43,9 @@ def ret_p_value(dados, var):
     #calcula_assimetria(dados, var)
     if p_v > 0.05:
         #calcula_curtose(dados, var)
-        print("Hipótese nula nao é desconsiderada.")
+        print(var, ": Hipótese nula nao é desconsiderada. É normal.")
     else:
-        print("Hipótese nula desconsiderada.")
+        print(var, ": Hipótese nula desconsiderada. Não é normal.")
     
     return p_v
 
@@ -130,6 +131,28 @@ def calcular_ssr(y_true, y_pred):
     ssr = np.sum((y_pred - media_y) ** 2)
 
     return ssr
+
+def spearman(x, y):
+    return spearmanr(x, y)
+
+def spearman_str(x, y):
+    correlation, p_value = spearmanr(x, y)
+
+    correlation = round(correlation, 2)
+    p_value = round(p_value, 2)
+
+    print("correlacao:", correlation, "p_value:", p_value)
+
+def pearson(x, y):
+    return pearsonr(x, y)
+
+def pearson_str(x, y):
+    correlation, p_value = pearsonr(x, y)
+
+    correlation = round(correlation, 2)
+    p_value = round(p_value, 2)
+
+    print("correlacao:", correlation, "p_value:", p_value)
 
 def linha():
     # imprime linha
