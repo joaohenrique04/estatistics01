@@ -24,3 +24,5 @@ array_sepal_width = bd_virginica['SepalWidthCm'].to_numpy()
 
 bd_cars = pd.read_csv('mtcars.csv')
 bd_cerveja = pd.read_csv('consumo_cerveja.csv')
+
+bd_house = pd.read_csv('BostonHousing.csv')
